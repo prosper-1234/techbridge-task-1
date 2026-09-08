@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!prefersReducedMotion && 'IntersectionObserver' in window) {
     const revealTargets = document.querySelectorAll(
-      '.about-grid, .program-card, .internship-grid, .why-item, .cta-inner, .contact-inner'
+      '.about-grid, .program-card, .internship-grid, .why-item, .cta-inner, .contact-inner, ' +
+      '.tasks-overview-item, .timeline-item, .progression-step, .journey-body, .tasks-cta-inner'
     );
 
     revealTargets.forEach((el) => el.classList.add('reveal'));

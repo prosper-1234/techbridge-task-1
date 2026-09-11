@@ -956,3 +956,120 @@ a:focus-visible, button:focus-visible {
   .tasks-cta-actions { flex-direction: column; align-items: stretch; }
   .journey-chain { padding: 1.25rem; }
 }
+
+/* =========================================================
+   TASK 4 — INTERACTIVE TWO-TRACK INTERNSHIP ROADMAP
+   24. Track Selector  25. Roadmap Intro  26. Difficulty Level 2
+   27. Roadmap Content Transition  28. Task 4 Media Queries
+   ========================================================= */
+
+/* ---------- 24. Track Selector ---------- */
+.track-selector-section { background: var(--color-surface); }
+.track-selector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 760px;
+}
+.track-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  width: 100%;
+  padding: 1.5rem 1.6rem;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: border-color var(--transition-med), background var(--transition-med),
+              transform var(--transition-med), box-shadow var(--transition-med);
+}
+.track-btn:hover {
+  border-color: var(--color-green-500);
+  transform: translateY(-3px);
+}
+.track-btn:focus-visible {
+  outline: 3px solid var(--color-green-500);
+  outline-offset: 3px;
+}
+.track-btn.is-active {
+  background: var(--color-green-100);
+  border-color: var(--color-green-500);
+  box-shadow: var(--shadow-glow);
+}
+.track-btn-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-med), border-color var(--transition-med);
+}
+.track-btn-icon svg { width: 24px; height: 24px; }
+.track-btn.is-active .track-btn-icon {
+  background: var(--color-navy-900);
+  border-color: var(--color-navy-900);
+}
+.track-btn.is-active .track-btn-icon .icon-stroke { stroke: var(--color-green-500); }
+.track-btn-text { display: flex; flex-direction: column; gap: 0.2rem; }
+.track-btn-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.08rem;
+  color: var(--color-navy-900);
+}
+.track-btn-desc { color: var(--color-text-muted); font-size: 0.9rem; }
+
+/* ---------- 25. Roadmap Intro ---------- */
+.roadmap-intro-section { background: var(--color-bg); }
+.roadmap-intro {
+  max-width: 760px;
+  padding: 2rem 2.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.roadmap-intro-text {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  max-width: 60ch;
+  margin-bottom: 1.1rem;
+}
+.roadmap-task-count {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-green-600);
+  background: var(--color-green-100);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+}
+
+/* ---------- 26. Difficulty Level 2 (Beginner → Intermediate) ---------- */
+.timeline-difficulty[data-level="2"] { background: #E4F1FD; color: #1B6FA8; }
+
+/* ---------- 27. Roadmap Content Transition ---------- */
+.roadmap-fade { animation: roadmap-fade-in 0.32s var(--transition-med) both; }
+@keyframes roadmap-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .roadmap-fade { animation: none; }
+}
+
+/* ---------- 28. Task 4 Media Queries ---------- */
+@media (max-width: 700px) {
+  .track-selector { grid-template-columns: 1fr; }
+  .roadmap-intro { padding: 1.5rem; }
+}
+@media (max-width: 480px) {
+  .track-btn { padding: 1.15rem 1.25rem; }
+  .track-btn-icon { width: 40px; height: 40px; }
+  .track-btn-icon svg { width: 20px; height: 20px; }
+}
